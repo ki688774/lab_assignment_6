@@ -2,6 +2,23 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
+	if (low == high) {
+		if (numbers[low] == value) {
+			return low;
+		} else {
+			return -1;
+		}
+	} else {
+		int mid = (int) (low + high) / 2;
+		if (numbers[mid] == value) {
+			return mid;
+		} else if (numbers[mid] > value) {
+			return search(numbers, low, mid, value);
+		} else if (mid != high) {
+			//The if statement here breaks infinite loops and prevents escaping the array.
+			return search(numbers, mid + 1, high, value);
+		}
+	}
 	return -1;
 }
 
