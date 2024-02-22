@@ -2,14 +2,14 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
+	int mid = (int) (low + high) / 2;
 	if (low == high) {
-		if (numbers[low] == value) {
-			return low;
+		if (numbers[mid] == value) {
+			return mid;
 		} else {
 			return -1;
 		}
 	} else {
-		int mid = (int) (low + high) / 2;
 		if (numbers[mid] == value) {
 			return mid;
 		} else if (numbers[mid] > value) {
